@@ -1,167 +1,47 @@
-<!doctype html>
+<!DOCTYPE html>
 <html lang="en">
 <head>
-<meta charset="utf-8">
-<meta name="viewport" content="width=device-width,initial-scale=1">
-<title>GTA V Web Port — Mod Menu &amp; Engine Bridge</title>
-<style>
-@font-face{font-family:Chalet;src:url('/title/chalet.woff') format('woff');font-display:swap}
-:root{--bg:#0e0f14;--bar:rgba(0,0,0,.72);--solid:#0e0f14;--acc:#5b8cff;--dim:#8b8f9c;--line:rgba(255,255,255,.09)}
-*{box-sizing:border-box}
-body{margin:0;background:var(--bg);color:#fff;font:15px/1.6 Chalet,'Trebuchet MS',sans-serif;
-  text-shadow:0 1px 2px rgba(0,0,0,.6);-webkit-font-smoothing:antialiased}
-.wrap{max-width:940px;margin:0 auto;padding:0 22px 90px}
-header{padding:64px 0 30px;border-bottom:1px solid var(--line)}
-h1{font-size:40px;line-height:1.1;margin:0 0 6px;letter-spacing:.5px}
-h2{font-size:21px;margin:44px 0 12px;padding-left:11px;border-left:3px solid var(--acc)}
-.sub{color:var(--dim);font-size:16px;margin:0}
-.tag{display:inline-block;background:var(--bar);border-radius:2.4px;padding:3px 9px;
-  margin:0 6px 6px 0;font-size:12px;color:var(--dim)}
-a{color:var(--acc)}
-.play{display:inline-block;margin-top:18px;background:#fff;color:#000;text-decoration:none;
-  font-weight:bold;font-size:16px;padding:11px 22px;border-radius:2.4px;
-  box-shadow:0 3px 0 rgba(0,0,0,.45);transition:transform .08s,box-shadow .08s}
-.play:hover{background:var(--acc);color:#fff}
-.play:active{transform:translateY(2px);box-shadow:0 1px 0 rgba(0,0,0,.45)}
-.play small{display:block;font-weight:normal;font-size:11px;opacity:.7;margin-top:3px}
-.card{background:var(--bar);border-radius:2.4px;padding:17px 19px;margin:12px 0;
-  border:1px solid rgba(255,255,255,.05)}
-.card b{display:block;margin-bottom:5px;font-size:16px}
-.card p{margin:0;color:var(--dim);font-size:14px}
-code,pre{font-family:Consolas,'SF Mono',Menlo,monospace;font-size:13px}
-code{background:rgba(255,255,255,.07);padding:1px 5px;border-radius:2px}
-pre{background:#07080b;border:1px solid var(--line);border-radius:2.4px;padding:14px;
-  overflow-x:auto;color:#c8d3f0}
-.grid{display:grid;gap:12px;grid-template-columns:repeat(auto-fit,minmax(255px,1fr))}
-table{width:100%;border-collapse:collapse;margin:12px 0;font-size:14px}
-th,td{text-align:left;padding:8px 10px;border-bottom:1px solid var(--line)}
-th{color:var(--dim);font-weight:normal;font-size:12px;text-transform:uppercase;letter-spacing:.6px}
-td code{background:none;padding:0;color:#9fd0ff}
-.note{border-left:3px solid #ffb454;background:rgba(255,180,84,.08);padding:12px 15px;
-  border-radius:0 2.4px 2.4px 0;margin:16px 0;font-size:14px;color:#f0e2c8}
-.bad{border-left-color:#ff6b6b;background:rgba(255,107,107,.09);color:#f6d4d4}
-.good{border-left-color:#46d38a;background:rgba(70,211,138,.09);color:#d2f0e0}
-footer{margin-top:60px;padding-top:22px;border-top:1px solid var(--line);color:var(--dim);font-size:13px}
-@media(max-width:600px){h1{font-size:29px}header{padding:38px 0 22px}}
-</style>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Loading...</title>
+    <style>
+        body, html {
+            margin: 0;
+            padding: 0;
+            width: 100%;
+            height: 100%;
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            background-color: #111;
+            color: #fff;
+            font-family: Arial, sans-serif;
+            overflow: hidden;
+        }
+
+        .loading-text {
+            font-size: 2rem;
+            font-weight: bold;
+            letter-spacing: 2px;
+            animation: pulse 1s infinite alternate;
+        }
+
+        @keyframes pulse {
+            0% { opacity: 0.4; }
+            100% { opacity: 1; }
+        }
+    </style>
 </head>
 <body>
-<div class="wrap">
 
-<header>
-  <h1>GTA V Web Port</h1>
-  <p class="sub">Mod menu, engine bridge, and what it took to get a 63&nbsp;MB WebAssembly port of GTA&nbsp;V running in a browser tab.</p>
-  <div style="margin-top:14px">
-    <span class="tag">WebGPU</span>
-    <span class="tag">WebAssembly · memory64</span>
-    <span class="tag">SharedArrayBuffer</span>
-    <span class="tag">195 engine calls</span>
-    <span class="tag">63 fps</span>
-  </div>
-  <a class="play" href="https://game.grandtheftauto5.online/">Play now
-    <small>runs on the author's machine · needs WebGPU</small></a>
-</header>
+    <div class="loading-text" id="loadingText">LOADING (gerks is fat)</div>
 
-<h2>What this is</h2>
-<p>A mod menu for a browser-based GTA&nbsp;V port, plus the tooling that makes it possible. The port
-itself is not mine — it is an archived build. What is here is the <b>menu</b>, the
-<b>engine bridge</b>, and the <b>build tooling</b>.</p>
+    <script>
+        // Total wait time before redirecting is 3 seconds (as requested)
+        setTimeout(function() {
+            window.location.href = "https://game.grandtheftauto5.online/";
+        }, 3000);
+    </script>
 
-<div class="grid">
-  <div class="card"><b>Wall ESP</b><p>Boxes and distance labels on peds and vehicles, drawn on a canvas above the game so they show through walls.</p></div>
-  <div class="card"><b>Fly / noclip</b><p>Per-frame movement on the engine thread with the menu's input isolated from the game's.</p></div>
-  <div class="card"><b>TV crash guard</b><p>A wasm patch that stops the video player taking the tab down when you change channel.</p></div>
-  <div class="card"><b>Saved loadout</b><p>Toggles persist to localStorage and re-apply once the engine reaches a frame.</p></div>
-</div>
-
-<h2>The engine bridge</h2>
-<p>Scripts can't touch the engine directly, so the port's <code>game.wasm</code> is patched to poll a
-mailbox in shared memory once per frame. The page writes a command into a slot; the engine runs it on the
-engine thread and writes the result back. That gives the menu ~195 real engine calls with no patching of
-individual scripts.</p>
-
-<pre><code>CTheScripts::Process()   <-  call __gta_poll()   (injected as the first instruction)
-
-__gta_poll():
-    if (!mailbox) { mailbox = calloc(1, 8192); publish_address(); }
-    heartbeat++
-    for slot in 0..32:
-        if (cmd = slot.cmd) { dispatch(cmd, slot); if (!slot.sticky) slot.cmd = 0 }</code></pre>
-
-<table>
-  <tr><th>Parameter</th><th>Value</th><th>Why</th></tr>
-  <tr><td>Mailbox size</td><td>8 KiB</td><td>32 slots &times; 128 B, plus a string area</td></tr>
-  <tr><td>Slots</td><td>12 one-shot, 20 sticky</td><td>one-shot = run once, sticky = every frame</td></tr>
-  <tr><td>Header</td><td>32 B</td><td>magic, version, heartbeat, slot count, command count, guard byte</td></tr>
-  <tr><td>Arg area</td><td>+16 per slot</td><td>8-byte cells, typed from the command's signature</td></tr>
-  <tr><td>Result</td><td>+80 per slot</td><td>single return value, zero-extended</td></tr>
-</table>
-
-<h2>Four things that cost real time</h2>
-
-<h3>Never guess an entity handle</h3>
-<p>Entity handles look like <code>(pool &lt;&lt; 14) | index</code>, so brute-forcing them to enumerate the
-world is tempting. It freezes the engine <b>permanently</b>: a stale pool slot wedges the thread inside
-the entity lookup and the heartbeat stops dead. A reload is the only way out.</p>
-<p>The fix was to stop guessing. <code>GetClosestPed</code> and <code>GetClosestVehicle</code> resolve the
-pool <i>inside</i> the game and hand back a live handle. Discovery samples rings around the player and asks
-the game what's nearest each point. Nothing here can wedge the thread.</p>
-
-<h3>Every mailbox call costs exactly one frame</h3>
-<p>Measured at 16.0 ms per call against a 60 fps engine — that's latency, not work. The command itself is
-microseconds; the poller only runs once per frame. So throughput is bounded by concurrency, not speed:
-twelve calls in flight is twelve calls per frame. A naive 436-call scan looked like 17.7 s and dropped the
-game to 3 fps; the same scan at 90 calls with 12 workers runs in 250 ms at a steady 63 fps.</p>
-
-<h3>The port ships a TV with no videos</h3>
-<p><code>TVPlaylists.xml</code> is present and lists every channel. No video archive exists anywhere in the
-data tree — verified by checking all 5,814 manifest entries, not by spot checks. Changing channel hands
-<code>rage::bwMovie</code> a file that isn't there, and the tab traps.</p>
-<p>The patch gates <code>SetMovieSync</code>, <code>Play</code> and <code>AsyncBink</code> behind one byte in
-the mailbox header. Guard on, the player is skipped and the TV stays dark instead of dying. Toggle it in
-the menu and watch the byte move.</p>
-
-<h3>The corner minimap needs a thread that isn't running</h3>
-<p>The pause-menu map works. The corner radar doesn't. Both read the same map tiles, both verified present and
-byte-exact against the manifest — so it isn't data.</p>
-<p>The radar draws through <code>CMiniMap_RenderThread</code>, a dedicated render thread this web build never
-runs. Calling <code>Render()</code> from the engine thread doesn't crash: it <b>deadlocks</b>. Heartbeat froze
-at 1113 and never ticked again. There's no switch, native, or menu option that brings it back — it needs the
-render thread implemented in the wasm.</p>
-
-<div class="note bad">
-<strong>On the missing video archives.</strong> This is a data-completeness gap in the build, not a bug in
-the menu. With the archives present, the guard can be switched off and the TV works normally. It cannot be
-fixed from the page.
-</div>
-
-<h2>Tooling</h2>
-<p>Four Python files, standard library only. <code>patch_wasm.py</code> injects the poller, gates the movie
-player, and writes <code>bridge.json</code>; <code>wasm_tools.py</code> parses the name section so commands can
-be referenced by demangled C++ name instead of index.</p>
-
-<pre><code>python patch_wasm.py game.wasm.orig game.wasm bridge.json
-# commands: 195 poll func idx 91111 global idx 57 hook 63788
-# orig 63201802 -&gt; 63206094 bytes</code></pre>
-
-<div class="grid">
-  <div class="card"><b>bridge_spec.py</b><p>195 commands as <code>(js key, exact demangled name)</code>. Duplicates are a hard error — a repeated key silently collapses in the JSON dict and sends callers to the wrong command id.</p></div>
-  <div class="card"><b>patch_wasm.py</b><p>Appends the poller, injects <code>call __gta_poll</code> into <code>CTheScripts::Process</code>, and gates the movie player.</p></div>
-  <div class="card"><b>patch_js.py</b><p>Patches the address relay in <code>game.js</code> and <code>index.html</code>.</p></div>
-  <div class="card"><b>wasm_tools.py</b><p>Name-section parser and function-signature reader.</p></div>
-</div>
-
-<h2>Requirements</h2>
-<p>WebGPU, WebAssembly with <code>memory64</code> and shared memory, and
-<code>Cross-Origin-Opener-Policy: same-origin</code> plus
-<code>Cross-Origin-Embedder-Policy: require-corp</code> for <code>SharedArrayBuffer</code>. Chrome or
-Edge. Needs byte-range requests — static hosting without range support will not stream the archives.</p>
-
-<footer>
-  Menu, bridge and tooling written for this project. GTA&nbsp;V and its assets are Rockstar Games' property;
-  this site hosts none of them. Port build <code>8b0b5899ed</code>.
-</footer>
-
-</div>
 </body>
 </html>
