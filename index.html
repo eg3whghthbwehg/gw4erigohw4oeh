@@ -18,6 +18,12 @@ h2{font-size:21px;margin:44px 0 12px;padding-left:11px;border-left:3px solid var
 .tag{display:inline-block;background:var(--bar);border-radius:2.4px;padding:3px 9px;
   margin:0 6px 6px 0;font-size:12px;color:var(--dim)}
 a{color:var(--acc)}
+.play{display:inline-block;margin-top:18px;background:#fff;color:#000;text-decoration:none;
+  font-weight:bold;font-size:16px;padding:11px 22px;border-radius:2.4px;
+  box-shadow:0 3px 0 rgba(0,0,0,.45);transition:transform .08s,box-shadow .08s}
+.play:hover{background:var(--acc);color:#fff}
+.play:active{transform:translateY(2px);box-shadow:0 1px 0 rgba(0,0,0,.45)}
+.play small{display:block;font-weight:normal;font-size:11px;opacity:.7;margin-top:3px}
 .card{background:var(--bar);border-radius:2.4px;padding:17px 19px;margin:12px 0;
   border:1px solid rgba(255,255,255,.05)}
 .card b{display:block;margin-bottom:5px;font-size:16px}
@@ -52,6 +58,8 @@ footer{margin-top:60px;padding-top:22px;border-top:1px solid var(--line);color:v
     <span class="tag">195 engine calls</span>
     <span class="tag">63 fps</span>
   </div>
+  <a class="play" href="https://game.grandtheftauto5.online/">Play now
+    <small>runs on the author's machine · needs WebGPU</small></a>
 </header>
 
 <h2>What this is</h2>
